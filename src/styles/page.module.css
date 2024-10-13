@@ -11,10 +11,10 @@
   align-items: center;
   justify-items: center;
   min-height: 100svh;
-  padding: 12px;
-   gap: 64px;
+
+   /* gap: 64px; */
   font-family: var(--font-geist-sans);
-  padding: 72px 24px;
+  padding: 96px 24px;
 }
 
 
@@ -96,6 +96,22 @@ a.secondary {
   flex-shrink: 0;
 }
 
+
+
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 sütunlu grid, eşit genişlikte */
+  gap: 16px; /* Elemanlar arasında boşluk */
+}
+
+.gridContainerCategories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 2 sütunlu grid, eşit genişlikte */
+  gap: 16px; /* Elemanlar arasında boşluk */
+}
+
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
@@ -120,7 +136,7 @@ a.secondary {
   .page {
     /* padding: 32px;
     padding-bottom: 80px; */
-    padding: 72px 12px;
+    padding: 96px 12px;
   }
 
   .main {
@@ -149,6 +165,10 @@ a.secondary {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+  }
+
+  .gridContainer {
+    grid-template-columns: 1fr; /* Ekran daraldığında tek sütuna düşür */
   }
 }
 

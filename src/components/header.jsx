@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -37,18 +37,18 @@ const Header = () => {
                     <img src="/images/Logo.svg" alt="logo" />
                 </Link>
                 <nav className={`${styles.navlist} ${menuOpen ? styles.show : ''}`}>
-                <button className={styles.menuButton} onClick={()=> setMenuOpen(false)}>
-                 <IoClose />
-            </button>
+                    <button className={styles.menuButton} onClick={() => setMenuOpen(false)}>
+                        <IoClose />
+                    </button>
                     <ul>
                         <li>
-                            <Link href="/">Ana Sayfa</Link>
+                            <Link href="/">Home</Link>
                         </li>
                         <li>
-                            <Link href="/about">Hakkında</Link>
+                            <Link href="/categories">Categories</Link>
                         </li>
                         <li>
-                            <Link href="/news">Haberler</Link>
+                            <Link href="/about">About</Link>
                         </li>
                     </ul>
                 </nav>
@@ -59,11 +59,11 @@ const Header = () => {
                 <IoMoon />
                 <span className={`${styles.ball} ${isDarkTheme ? styles.moveRight : styles.moveLeft}`}></span>
             </button>
-           
-            <button className={styles.menuButton} onClick={()=> setMenuOpen(true)}>
-                 <IoMenu />
+
+            <button className={styles.menuButton} onClick={() => setMenuOpen(true)}>
+                <IoMenu />
             </button>
-           
+
             <div className={`${styles.overlay} ${menuOpen ? styles.active : ''}`} onClick={toggleMenu}></div>
         </header>
     );

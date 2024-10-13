@@ -1,17 +1,20 @@
-'use client'
+"use client"
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation'
 import styles from '@/styles/categories.module.css';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 function Categories() {
+
+    const router = useRouter();
     const categories = [
-        { name: '#Business', image: '/images/categories/business.png' },
-        { name: '#Entertainment', image: '/images/categories/entertainment.png' },
-        { name: '#General', image: '/images/categories/general.png' },
-        { name: '#Health', image: '/images/categories/health.png' },
-        { name: '#Science', image: '/images/categories/science.png' },
-        { name: '#Sports', image: '/images/categories/sports.png' },
-        { name: '#Technology', image: '/images/categories/technology.png' },
+        { name: '#Business', url:'business', image: '/images/categories/business.png' },
+        { name: '#Entertainment', url:'entertainment', image: '/images/categories/entertainment.png' },
+        { name: '#General', url:'general', image: '/images/categories/general.png' },
+        { name: '#Health', url:'health', image: '/images/categories/health.png' },
+        { name: '#Science', url:'science', image: '/images/categories/science.png' },
+        { name: '#Sports', url:'sports',  image: '/images/categories/sports.png' },
+        { name: '#Technology', url:'technology', image: '/images/categories/technology.png' },
     ];
     const [showLeftArrow, setShowLeftArrow] = useState(false);
     const [showRightArrow, setShowRightArrow] = useState(true);
@@ -30,6 +33,10 @@ function Categories() {
         return () => scrollable.removeEventListener('scroll', updateArrows);
     }, []);
 
+    const handleCategoryClick = (category) => {
+        router.push(`/category/${category}`); 
+    };
+
     return (
         <div className={styles.container}>
             {showLeftArrow && (
@@ -39,7 +46,7 @@ function Categories() {
             )}
             <div id="scrollable" className={styles.scrollable}>
                 {categories.map((category, index) => (
-                    <div key={index} className={styles.item}>
+                    <div key={index} className={styles.item} onClick={() => handleCategoryClick(category.url)}>
                         <img src={category.image} alt={category.name} className={styles.image} />
                         <span className={styles.label}>{category.name}</span>
                     </div>
