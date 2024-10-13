@@ -1,48 +1,37 @@
-import Image from "next/image";
+
 import styles from "@/styles/page.module.css";
-import { fetchTopHeadlines } from "@/services/newsApi";
+import { fetchArticles } from "@/services/newsApi";
 import Catagories from "@/components/catagories";
+import NewsCard from "@/components/newsCard";
+import { IoIosArrowForward } from "react-icons/io";
+import Title from "@/components/title";
+import NewsList from "@/components/newsList";
 
 export default async function Home() {
-  
-  const articles = await fetchTopHeadlines();
+
+  const articles = await fetchArticles({ country: 'us' });
+  // const limitedArticles = articles.slice(0, 6);
 
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         <Catagories />
-      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
-      <h1 style={{ textAlign: 'center' }}>Son Haberler</h1>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {articles.map((article, index) => (
-          <li key={index} style={{ marginBottom: '20px' }}>
-            <a href={article.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#333' }}>
-              <h2 style={{ fontSize: '20px', margin: '0 0 10px' }}>{article.title}</h2>
-            </a>
+        <div>
+        <Title
+            title="Breaking News" 
+            buttonName="Show All" 
+            buttonIcon={<IoIosArrowForward />}
+          />
+          {/* <div className={styles.gridContainer}>
+            {articles.map((article, index) => (
+              <NewsCard key={index} news={article} />
+            ))}
+          </div>  */}
+          {/* <NewsListServer articles={articles}/> */}
+         <NewsList initialArticles={articles} country="us"/>
+        </div>
 
-            {article.urlToImage && (
-              <div style={{ position: 'relative', width: '100%', height: '400px' }}>
-                <Image
-                  src={article.urlToImage}
-                  alt={article.title}
-                  layout="fill"
-                  objectFit="cover"
-                  priority
-                />
-              </div>
-            )}
-
-            <p>{article.description}</p>
-            <p><small>Kaynak: {article.source.name} | Yazar: {article.author}</small></p>
-            <p><small>Yayınlanma Tarihi: {new Date(article.publishedAt).toLocaleDateString()}</small></p>
-          </li>
-        ))}
-      </ul>
-    </div>
       </main>
     </div>
   );
 }
-
-
-
