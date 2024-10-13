@@ -4,6 +4,7 @@
   --foreground: #171717;
   --gray: #F5F5F5;
   --primary: #000D87;
+  --darkGray: #D0D0D0
 }
 
 [data-theme='dark'] {

@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 4px 20px;
   background-color: var(--background);
   color: var(--foreground);
   position: fixed;
@@ -20,7 +20,7 @@
 }
 
 .logo img {
-  width: 96px;
+  width: 52px;
 }
   
 .navlist ul {

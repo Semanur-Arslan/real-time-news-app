@@ -1,21 +1,21 @@
 import "@/styles/globals.css";
-import Head from "next/head";
 import Header from "@/components/header";
+import Categories from "@/components/catagories";
 
 export const metadata = {
-  title: "News",
+  title: "NBC News",
   description: "Live Breaking News",
+  icons: {
+    icon: "/favicon.ico"
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <title>{metadata.title}</title>
-      </Head>
       <body>
         <Header />
+        <Categories />
         {children}
       </body>
     </html>

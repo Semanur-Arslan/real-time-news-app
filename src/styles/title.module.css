@@ -8,21 +8,3 @@
     padding:4px;
     margin-bottom:24px;
   }
-  
-  .title button{
-    border:none;
-    background-color:var(--gray);
-    padding: 8px 12px;
-    color:gray;
-    font-size:14px;
-    display:flex;
-    align-items:center;
-    border-radius: 8px;
-    cursor:pointer;
-    transition: background-color 0.5s ease, color 0.5s ease;
-  }
-  
-  .title button:hover{
-    background-color:gray;
-    color:white;
-  }

@@ -5,9 +5,7 @@ import Link from 'next/link';
 import styles from '@/styles/header.module.css';
 import { IoMoon, IoSunny, IoMenu, IoClose } from "react-icons/io5";
 
-
-
-const Header = () => {
+export default function Header () {
     const [isDarkTheme, setIsDarkTheme] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -69,4 +67,3 @@ const Header = () => {
     );
 };
 
-export default Header;
