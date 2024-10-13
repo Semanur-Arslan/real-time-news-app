@@ -3,14 +3,14 @@ import styles from '@/styles/newsCard.module.css';
 import { format } from 'date-fns';
 import defaultImage from '../../public/images/default.png';
 
-function NewsCard({ news }) {
+export default function NewsCard({ news }) {
     const getShortenedTitle = (title, limit) => {
         const words = title.split(' ');
         return words.length > limit ? words.slice(0, limit).join(' ') + '...' : title;
     };
 
     return (
-        
+
         <div className={styles.cardContainer}>
             {news.urlToImage && (
                 <div className={styles.cardImg}>
@@ -45,5 +45,3 @@ function NewsCard({ news }) {
         </div>
     );
 }
-
-export default NewsCard;

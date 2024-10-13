@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import styles from '@/styles/categories.module.css';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-function Categories() {
+export default function Categories() {
 
     const router = useRouter();
     const categories = [
@@ -61,5 +61,5 @@ function Categories() {
     );
 }
 
-export default Categories;
+
 

@@ -14,7 +14,7 @@
 
    /* gap: 64px; */
   font-family: var(--font-geist-sans);
-  padding: 96px 24px;
+  padding:24px;
 }
 
 
@@ -136,7 +136,7 @@ a.secondary {
   .page {
     /* padding: 32px;
     padding-bottom: 80px; */
-    padding: 96px 12px;
+    padding: 24px 12px;
   }
 
   .main {

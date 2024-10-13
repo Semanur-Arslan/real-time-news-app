@@ -1,36 +1,38 @@
 
 import { fetchArticles } from '@/services/newsApi';
-import NewsCard from '@/components/newsCard';
 import styles from '@/styles/page.module.css';
 import Title from '@/components/title';
 import NewsList from '@/components/newsList';
+import ErrorMessage from '@/components/errorMessage';
 
 export default async function CategoryPage({ params }) {
 
-    const { category } = params;
-     const articles = await fetchArticles({category});
+  const { category } = params;
 
-    const formattedCategory = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+  let articles = [];
+  let errorMessage = null;
 
-    return (
-        <div className={styles.page}>
-            <main className={styles.main}>
-            <div>
-        <Title
-            title={`${formattedCategory} Category`} 
+  try {
+    articles = await fetchArticles({ category });
+  } catch (error) {
+    errorMessage = error;
+  }
+
+  const formattedCategory = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+
+  return (
+    <div className={styles.page}>
+      <main className={styles.main}>
+        <div>
+          <Title
+            title={`${formattedCategory} Category`}
           />
-          {/* <div className={styles.gridContainerCategories}>
-            {articles.map((article, index) => (
-              <NewsCard key={index} news={article} />
-            ))}
-          </div> */}
-          {/* <NewsList category={category} /> */}
-
-          <NewsList initialArticles={articles} category={category}/>
+          {errorMessage && <ErrorMessage message={errorMessage} />}
+          <NewsList initialArticles={articles} category={category} serverError={errorMessage}/>
         </div>
-            </main>
-        </div>
-    );
+      </main>
+    </div>
+  );
 };
 
 

@@ -3,9 +3,10 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 8px 0px;
+    padding: 8px 32px;
     background-color: var(--gray);
     border-radius: 4px;
+    margin-top: 72px;
   }
   
   .scrollable {
@@ -61,5 +62,12 @@
     cursor: pointer;
     font-size: 18px;
     padding: 4px;
+  }
+
+
+  @media (max-width: 600px) {
+    .container {
+      padding: 8px 4px;
+    }
   }
   
