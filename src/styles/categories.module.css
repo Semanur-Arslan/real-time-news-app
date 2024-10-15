@@ -6,7 +6,7 @@
     padding: 8px 32px;
     background-color: var(--gray);
     border-radius: 4px;
-    margin-top: 72px;
+    /* margin-top: 72px; */
   }
   
   .scrollable {
@@ -67,7 +67,7 @@
 
   @media (max-width: 600px) {
     .container {
-      padding: 8px 4px;
+      padding: 8px 8px;
     }
   }
   

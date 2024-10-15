@@ -7,4 +7,5 @@
     border-left: 6px solid var(--primary);
     padding:4px;
     margin-bottom:24px;
+    text-transform: capitalize;
   }

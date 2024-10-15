@@ -1,0 +1,62 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; 
+  }
+  
+  .modalContent {
+    background-color: var(--gray);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    text-align: center;
+    margin: 0px 1em;
+    display:grid;
+    gap: 24px;
+  }
+
+  .modalContent .buttonContainer {
+    display: flex;
+    justify-content : flex-end;
+    gap: 12px;
+  }
+  
+  .buttonContainer button {
+   padding: 8px;
+   background:none;
+   border-radius: 4px;
+   display:flex;
+   align-items: center;
+   gap : 2px;
+   transition: 0.5s ease;
+   font-size: 14px;
+
+  }
+
+  .buttonContainer .successButton {
+    border: 1px solid var(--primary);
+    color : var(--primary);
+   }
+
+   .buttonContainer .successButton:hover {
+    background-color: var(--primary);
+    color: white;
+   }
+
+   .buttonContainer .skipButton {
+    border: 1px solid gray;
+    color : gray;
+   }
+
+   .buttonContainer .skipButton:hover {
+    background-color: var(--darkGray);
+   }
+  

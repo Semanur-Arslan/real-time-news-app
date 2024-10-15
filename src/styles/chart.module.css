@@ -1,0 +1,9 @@
+.chartContainer {
+    padding:4px;
+    display:flex;
+    justify-content:center;
+}
+
+.barContainer {
+    width:96%;
+}
