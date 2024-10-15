@@ -1,42 +1,60 @@
-
-import styles from "@/styles/page.module.css";
 import { fetchArticles } from "@/services/newsApi";
-import Catagories from "@/components/catagories";
-import NewsCard from "@/components/newsCard";
 import { IoIosArrowForward } from "react-icons/io";
 import Title from "@/components/title";
 import NewsList from "@/components/newsList";
-import ErrorMessage from "@/components/errorMessage";
+import PreferencesPromptModal from "@/components/modal";
+import Categories from "@/components/catagories";
+import { cookies } from "next/headers";
+import style from '@/styles/homePage.module.css';
 
 export default async function Home() {
+  const cookieStore = cookies();
+  const userPreferences = cookieStore.get("userPreferences")?.value; // Çerezden tercihler
 
-  // const articles = await fetchArticles({ country: 'us' });
-  // const limitedArticles = articles.slice(0, 6);
+  // Eğer userPreferences string olarak kaydedildiyse, JSON.parse ile diziye çevir
+  const preferences = userPreferences ? JSON.parse(userPreferences) : { categories: [], sources: [] };
+  const { sources } = preferences;
 
-  let articles = [];
-  let errorMessage = null;
+  let articlesBySource = {};
+  let generalArticles = [];
 
-  try {
-    articles = await fetchArticles({ category: 'general' });
-  } catch (error) {
-    errorMessage = error;
+  if (sources.length > 0) {
+  
+    await Promise.all(
+      sources.map(async (source) => {
+        const articles = await fetchArticles({ sources: source });
+        articlesBySource[source] = articles; 
+      })
+    );
+    console.log(articlesBySource)
+  } else {
+
+    generalArticles = await fetchArticles({ category: 'general' });
   }
 
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        {/* <Catagories /> */}
-        <div>
-          <Title
-            title="Breaking News"
-            buttonName="Show All"
-            buttonIcon={<IoIosArrowForward />}
-          />
-          {errorMessage && <ErrorMessage message={errorMessage} />}
-          <NewsList initialArticles={articles} category="general" serverError={errorMessage} />
-        </div>
-
-      </main>
-    </div>
+    <>
+      <Categories />
+      <div className="container">
+        {sources.length > 0 ? (
+          Object.entries(articlesBySource).map(([source, articles]) => (
+            <div className={style.newsContainerBySource} key={source}>
+              <Title title={`${source}`} buttonName="Show All" buttonIcon={<IoIosArrowForward />} />
+              <NewsList initialArticles={articles} category={source} />
+            </div>
+          ))
+        ) : (
+          <>
+            <Title
+              title="Breaking News"
+              buttonName="Show All"
+              buttonIcon={<IoIosArrowForward />}
+            />
+            <NewsList initialArticles={generalArticles} category="general" />
+          </>
+        )}
+        {sources.length === 0 && <PreferencesPromptModal />}
+      </div>
+    </>
   );
 }

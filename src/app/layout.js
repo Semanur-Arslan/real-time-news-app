@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import Header from "@/components/header";
 import Categories from "@/components/catagories";
+import styles from '@/styles/page.module.css';
 
 export const metadata = {
   title: "NBC News",
@@ -15,8 +16,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Header />
-        <Categories />
-        {children}
+        {/* <Categories /> */}
+        <div className={styles.page}>
+          <main className={styles.main}>
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );

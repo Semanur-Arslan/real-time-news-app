@@ -1,25 +1,19 @@
 import { useState, useEffect } from "react";
 import { fetchArticles } from "@/services/newsApi";
 
-export default function useFetchArticles({ country, category }, interval = 60000) {
+export default function useFetchArticles({ country, category, sources }, interval = 60000) {
   const [articles, setArticles] = useState([]);
-  const [error, setError] = useState(null);
 
   const getArticles = async () => {
-    try {
-      const response = await fetchArticles({ country, category });
+      const response = await fetchArticles({ country, category, sources });
       setArticles(response);
-      setError(null); 
-    } catch (error) {
-      setError(error);
-    }
   };
 
   useEffect(() => {
     const intervalId = setInterval(getArticles, interval);
 
     return () => clearInterval(intervalId);
-  }, [country, category, interval]);
+  }, [country, category, sources, interval]);
 
-  return { articles, error };
+  return { articles };
 }

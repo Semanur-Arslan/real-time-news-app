@@ -1,0 +1,48 @@
+
+.selectContainer {
+    display:flex;
+    flex-direction: column;
+    gap:16px
+}
+.title {
+    text-decoration: underline;
+}
+
+.subheading {
+    text-transform: capitalize;
+     padding-top: 12px; 
+
+}
+
+.selectCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+    margin:12px 0;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:8px;
+    border: 1px solid gray;
+    color:gray;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.9s;
+}
+
+.card:hover {
+    background-color: var(--primary);
+    color: white; 
+    border-color: var(--primary); 
+}
+
+
+.card.selected {
+    background-color: var(--primary); 
+    color: white;
+    border-color: var(--primary); 
+}

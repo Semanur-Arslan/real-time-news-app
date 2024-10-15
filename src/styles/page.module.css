@@ -15,6 +15,7 @@
    /* gap: 64px; */
   font-family: var(--font-geist-sans);
   padding:24px;
+  margin-top: 64px;
 }
 
 
@@ -96,22 +97,6 @@ a.secondary {
   flex-shrink: 0;
 }
 
-
-
-
-.gridContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 sütunlu grid, eşit genişlikte */
-  gap: 16px; /* Elemanlar arasında boşluk */
-}
-
-.gridContainerCategories {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 2 sütunlu grid, eşit genişlikte */
-  gap: 16px; /* Elemanlar arasında boşluk */
-}
-
-
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
@@ -167,8 +152,5 @@ a.secondary {
     justify-content: center;
   }
 
-  .gridContainer {
-    grid-template-columns: 1fr; /* Ekran daraldığında tek sütuna düşür */
-  }
 }
 

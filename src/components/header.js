@@ -43,10 +43,10 @@ export default function Header () {
                             <Link href="/">Home</Link>
                         </li>
                         <li>
-                            <Link href="/categories">Categories</Link>
+                            <Link href="/preferences">Preferences</Link>
                         </li>
                         <li>
-                            <Link href="/about">About</Link>
+                            <Link href="/chart">Chart</Link>
                         </li>
                     </ul>
                 </nav>
