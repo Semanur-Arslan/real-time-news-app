@@ -8,6 +8,7 @@ import { IoMoon, IoSunny, IoMenu, IoClose } from "react-icons/io5";
 export default function Header () {
     const [isDarkTheme, setIsDarkTheme] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    
 
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');
