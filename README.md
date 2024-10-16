@@ -53,11 +53,21 @@ Uygulamanın veri sunumunun gerçek zamanlıya yakın olması için client taraf
 ### Kullanıcı Tercihleri Yönetimi
 Kullanıcı tercihlerini kayıtlı tutmak için çerezler kullanılmaktadır. Bu yapı, sunucu tarafında API rotaları oluşturularak gerçekleştirilmiştir.kullanıcı tercihlerinin çerezlere kaydedilmesi ve okunması işlemleri sağlanmıştır. Bu yöntem, kullanıcı deneyimini geliştirmek ve kullanıcıların tercihlerini kalıcı hale getirmek için etkilidir.
 
+### Hata Yönetimi
+Uygulama, sunucu tarafı hatalarını yönetmek için error.js dosyası ile hataların yakalanıp belirli bir formatta gösterilmesini sağlamaktadır. Client tarafında ise, özellikle veri çekme işlemlerinde karşılaşılabilecek hatalar için kullanıcıya bildirim sağlamak amacıyla React-Toastify kütüphanesi kullanılmaktadır. Bu sayede kullanıcılar, hatalardan anında haberdar olmaktadır.
+
 ### Bileşen Tabanlı Mimari 
 Proje, bileşen tabanlı bir mimari ile geliştirilmiştir. Her bileşen, belirli bir işlevi yerine getirerek uygulamanın modüler ve sürdürülebilir olmasını sağlar. Bu yapı, kodun okunabilirliğini artırırken aynı zamanda bileşenlerin yeniden kullanılabilirliğini de sağlar.
 
 ### Stil ve Tasarım
 CSS Modülleri kullanılarak her bileşen için özel stiller oluşturulmuştur. Bu yaklaşım, stillerin modüler olmasını ve bileşenler arasında stil karmaşasını önler. Ayrıca, responsive tasarım prensipleri gözetilerek tüm cihazlarda uyumlu bir kullanıcı deneyimi sağlanmıştır.
+
+## Bilinen Kısıtlamalar
+-API Sınırlamaları: News API'nin belirli bir API çağrı limiti vardır (24 saat için 100 istek). Kullanıcılar, bu limiti aşarsa, uygulama doğru veri sağlayamayabilir ve hata mesajları ile karşılaşabilirler.
+
+-Gerçek Zamanlı Veri Güncellemesi: Client tarafındaki veri güncellemeleri, belirli aralıklarla yapılmaktadır. Bu durum, haberlerin anlık olarak güncellenmediği anlamına gelir ve kullanıcıların birkaç dakikalık gecikmelerle yeni haberleri alabileceği anlamına gelir.
+
+--Kapsamlı İçerik: Uygulama, yalnızca News API'den sağlanan içeriklerle sınırlıdır. Kullanıcılar, haber başlıklarına tıkladıklarında haber kaynağındaki ilgili habere yönlendirilir.
 
 ## Projeyi Başlatmak İçin Adımlar
 
