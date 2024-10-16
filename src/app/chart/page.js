@@ -17,6 +17,7 @@ export default function ChartPage() {
         const preferences = await getPreferences();
         const hourlyDataArray = [];
 
+
         await Promise.all(
           preferences.sources.map(async (source) => {
             const articles = await fetchArticles({ sources: source });
@@ -46,12 +47,19 @@ export default function ChartPage() {
   return (
     <div>
       <Title title="News Feed Clock Activity" />
-      <div className={styles.chartContainer}>
-        <div className={styles.barContainer}>
 
-          <LineChart data={hourlyData} />
+
+      {hourlyData.length === 0 ? (
+        <p>To see the News Feed Clock Activity graph, you can choose according to your interests from the preferences tab.</p>
+      ) : (
+        <div className={styles.chartContainer}>
+          <div className={styles.barContainer}>
+            <LineChart data={hourlyData} />
+          </div>
         </div>
-      </div>
+      )}
+
+
     </div>
   );
 }

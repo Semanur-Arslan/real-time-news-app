@@ -55,9 +55,6 @@ export default async function Home() {
           <>
             <Title
               title="Breaking News"
-              buttonName="Show All"
-              buttonIcon={<IoIosArrowForward />}
-              router={`/source/general`}
             />
             <NewsList
               initialArticles={generalArticles}
