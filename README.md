@@ -1,6 +1,17 @@
+
+https://github.com/user-attachments/assets/1bf1790e-4b81-424e-9112-99ecf22699f1
 # Haber Takip Uygulaması
 
 Bu proje, kullanıcıların çeşitli kaynaklardaki ve konulardaki haberleri görüntülemesini sağlayan bir Next.js 14 uygulamasıdır. Kullanıcılar, takip etmek istedikleri haber kaynaklarını seçebilir ve kişiselleştirilmiş bir haber deneyimi yaşayabilirler
+
+
+https://github.com/user-attachments/assets/7a9a93cf-b43e-4461-b3eb-c74c205598a2
+
+
+
+
+https://github.com/user-attachments/assets/7677b222-cd5f-42d0-b54c-a57817f6d95f
+
 
 ## Özellikler
 
@@ -19,7 +30,7 @@ Uygulama, kullanıcıya light ve dark mod seçenekleri sunar.
 ## Kullanılan Teknolojiler
 
 - 📦 Axios: HTTP isteklerini kolayca yönetmek için.
-- 📊 Chart.js: Verileri görselleştirmek için güçlü bir kütüphane.
+- 📊 Chart.js: Verileri görselleştirmek için kütüphane.
 - 📈 React-Chartjs-2: Chart.js'i React ile entegre etmek için.
 - 📅 Date-fns: Tarih işlemlerini basit ve etkili bir şekilde yönetmek için.
 - 🔍 React-Icons: Farklı ikon setlerini kolayca kullanabilmek için.
@@ -27,26 +38,26 @@ Uygulama, kullanıcıya light ve dark mod seçenekleri sunar.
 
 ## Mimari Kararlar
 
-1. **Framework Seçimi: Next.js 14**
-Next.js, React tabanlı bir framework olarak, uygulamanın performansını ve kullanıcı deneyimini artırmak amacıyla seçilmiştir. Versiyon 14 ile birlikte sunulan yenilikler, özellikle geliştirme sürecini hızlandıran ve performansı artıran özellikler içermektedir. Sunucu tarafı render (SSR) ve statik site üretimi (SSG) gibi özellikler, SEO uyumu ve hızlı sayfa yükleme süreleri sağlar.
+### Framework Seçimi: Next.js 14
+Next.js Versiyon 14 ile birlikte sunulan yenilikler, özellikle geliştirme sürecini hızlandıran ve performansı artıran özellikler içermektedir. Sunucu tarafı render (SSR) ve statik site üretimi (SSG) gibi özellikler, SEO uyumu ve hızlı sayfa yükleme süreleri sağlar.
 #### Sunucu Taraflı Yükleme
 Uygulama açılırken, sunucu taraflı yükleme tercih edilmiştir. Bu yaklaşım sayesinde, anasayfa verileri sunucu tarafından çekilerek SEO açısından optimize edilmiş bir sayfa ile uygulamanın başlatılması sağlanmıştır. Böylece kullanıcı, hızlı bir tam sayfa görüntüsü ile karşılaşmakta ve uygulamanın ilk izlenimi olumlu bir şekilde şekillenmektedir. Daha sonrasında, veriler client tarafında gerçekleştirilen HTTP istekleri ile güncel tutulmaktadır.
 #### Gerçek Zamanlı Veri Sunumu
-Uygulamanın veri sunumunun gerçek zamanlıa yakın olması için client tarafındaki HTTP istekleri belirli aralıklarla çekilecek şekilde yapılandırılmıştır. Kullanıcıların en güncel haberleri hızlı bir şekilde alabilmesi için özel bir hook geliştirilmiştir.Oluşturulan hook ile, belirli bir kategori ve kaynak için makaleleri dinamik olarak çekmek amacıyla tasarlanmıştır. Avantajları şunlardır:
+Uygulamanın veri sunumunun gerçek zamanlıya yakın olması için client tarafındaki HTTP istekleri belirli aralıklarla çekilecek şekilde yapılandırılmıştır. Kullanıcıların en güncel haberleri hızlı bir şekilde alabilmesi için özel bir hook geliştirilmiştir.Oluşturulan hook ile, belirli bir kategori ve kaynak için makaleleri dinamik olarak çekmek amacıyla tasarlanmıştır. Avantajları şunlardır:
 
---State tanımlamaları ile, fetch edilen makaleleri ve yeni makalelerle ilgili bildirimleri yönetir. Bu sayede kullanıcılar, güncel içeriklere hızlıca erişim sağlar.
+-State tanımlamaları ile, fetch edilen makaleleri ve yeni makalelerle ilgili bildirimleri yönetir. Bu sayede kullanıcılar, güncel içeriklere hızlıca erişim sağlar.
 
 -Referans Kullanımı ile, makale güncellemelerinin izlenmesini sağlar ve referansların güncellenmesi esnasında bileşenin yeniden render edilmesini gerektirmeden verimliliği artırır.
 
 -Asenkron Veri Çekme: getArticles fonksiyonu, belirlenen parametrelere göre makaleleri asenkron bir şekilde çeker. Bu fonksiyon, makalelerin yayınlandığı tarihleri kontrol ederek, yeni makaleler için bildirimler oluşturur.
 
-2. **Kullanıcı Tercihleri Yönetimi**
+### Kullanıcı Tercihleri Yönetimi
 Kullanıcı tercihlerini kayıtlı tutmak için çerezler kullanılmaktadır. Bu yapı, sunucu tarafında API rotaları oluşturularak gerçekleştirilmiştir.kullanıcı tercihlerinin çerezlere kaydedilmesi ve okunması işlemleri sağlanmıştır. Bu yöntem, kullanıcı deneyimini geliştirmek ve kullanıcıların tercihlerini kalıcı hale getirmek için etkilidir.
 
-3. **Bileşen Tabanlı Mimari**
+### Bileşen Tabanlı Mimari 
 Proje, bileşen tabanlı bir mimari ile geliştirilmiştir. Her bileşen, belirli bir işlevi yerine getirerek uygulamanın modüler ve sürdürülebilir olmasını sağlar. Bu yapı, kodun okunabilirliğini artırırken aynı zamanda bileşenlerin yeniden kullanılabilirliğini de sağlar.
 
-3. **Stil ve Tasarım**
+### Stil ve Tasarım
 CSS Modülleri kullanılarak her bileşen için özel stiller oluşturulmuştur. Bu yaklaşım, stillerin modüler olmasını ve bileşenler arasında stil karmaşasını önler. Ayrıca, responsive tasarım prensipleri gözetilerek tüm cihazlarda uyumlu bir kullanıcı deneyimi sağlanmıştır.
 
 ## Projeyi Başlatmak İçin Adımlar
