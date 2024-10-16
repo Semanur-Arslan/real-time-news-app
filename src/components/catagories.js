@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import styles from '@/styles/categories.module.css';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { fetchCategories } from '@/services/localApi';
+import { toast } from 'react-toastify';
 
 export default function Categories() {
 
@@ -15,7 +16,6 @@ export default function Categories() {
     useEffect(() => {
 
         const scrollable = document.getElementById('scrollable');
-
         const updateArrows = () => {
             setShowLeftArrow(scrollable.scrollLeft > 0);
             setShowRightArrow(scrollable.scrollLeft < scrollable.scrollWidth - scrollable.clientWidth);
@@ -28,22 +28,23 @@ export default function Categories() {
     }, []);
 
     useEffect(() => {
+
         const getCategories = async () => {
             try {
                 const data = await fetchCategories();
                 setCategories(data);
             } catch (error) {
-                console.error('Kategoriler alınamadı:', error);
+                const errorMessage = error.message || 'There was a problem retrieving categories';
+                toast.error(errorMessage);
             }
         };
+
         getCategories();
     }, []);
 
     const handleCategoryClick = (category) => {
         router.push(`/category/${category}`);
     };
-
-
 
     return (
         <div className={styles.container}>

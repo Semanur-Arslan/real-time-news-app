@@ -2,24 +2,23 @@
 import { fetchArticles } from '@/services/newsApi';
 import Title from '@/components/title';
 import NewsList from '@/components/newsList';
-import Categories from '@/components/catagories';
 
-export default async function CategoryPage({ params }) {
+export default async function SourcePage({ params }) {
 
-  const { category } = params;
+  const { source } = params;
   let articles = [];
-  articles = await fetchArticles({ category });
+  articles = await fetchArticles({ sources: source  });
+  
 
   return (
     <>
-      <Categories />
       <div>
         <Title
-          title={`${category} Category`}
+          title={`${source} Category`}
         />
-        <NewsList
+        <NewsList 
           initialArticles={articles}
-          category={category}
+          source={source}
         />
       </div>
     </>

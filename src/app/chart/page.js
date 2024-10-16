@@ -1,30 +1,56 @@
-'use client'
+'use client';
 import { useEffect, useState } from 'react';
-import ActiveHoursChart from '@/components/activeHoursChart';
+import LineChart from '@/components/lineChart';
 import styles from '@/styles/chart.module.css';
 import Title from '@/components/title';
-// import fetchNewsData from '@/lib/fetchNewsData'; 
+import { fetchArticles } from "@/services/newsApi";
+import { getPreferences } from "@/services/localApi";
+import { toast } from 'react-toastify';
 
-export default function ActiveHoursPage() {
-  const [hourlyData, setHourlyData] = useState(Array(24).fill(0));
+export default function ChartPage() {
+  const [hourlyData, setHourlyData] = useState([]);
 
   useEffect(() => {
-    async function loadData() {
-    //   const articles = await fetchNewsData();
-    //   const groupedData = groupNewsByHour(articles);
-    //   setHourlyData(groupedData);
-    }
+    const fetchData = async () => {
+      try {
 
-    loadData();
+        const preferences = await getPreferences();
+        const hourlyDataArray = [];
+
+        await Promise.all(
+          preferences.sources.map(async (source) => {
+            const articles = await fetchArticles({ sources: source });
+
+            const hourlyDistribution = new Array(24).fill(0);
+            articles.forEach(article => {
+              const publishedAt = new Date(article.publishedAt);
+              const hour = publishedAt.getHours();
+              hourlyDistribution[hour] += 1;
+            });
+
+            hourlyDataArray.push({ [source]: hourlyDistribution });
+          })
+        );
+
+        setHourlyData(hourlyDataArray);
+
+      } catch (error) {
+        toast.error(error.message);
+      }
+    };
+
+    fetchData();
+
   }, []);
 
   return (
     <div>
-      <Title 
-      title="News Feed Clock Activity"
-      />
+      <Title title="News Feed Clock Activity" />
       <div className={styles.chartContainer}>
-      <ActiveHoursChart data={hourlyData} />
+        <div className={styles.barContainer}>
+
+          <LineChart data={hourlyData} />
+        </div>
       </div>
     </div>
   );
