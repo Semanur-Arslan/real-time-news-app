@@ -56,6 +56,9 @@ Kullanıcı tercihlerini kayıtlı tutmak için çerezler kullanılmaktadır. Bu
 ### Hata Yönetimi
 Uygulama, sunucu tarafı hatalarını yönetmek için error.js dosyası ile hataların yakalanıp belirli bir formatta gösterilmesini sağlamaktadır. Client tarafında ise, özellikle veri çekme işlemlerinde karşılaşılabilecek hatalar için kullanıcıya bildirim sağlamak amacıyla React-Toastify kütüphanesi kullanılmaktadır. Bu sayede kullanıcılar, hatalardan anında haberdar olmaktadır.
 
+<img width="1440" alt="server-error" src="https://github.com/user-attachments/assets/49d13eed-3ac0-44f4-bb7a-f2e885acdca4">
+<img width="1440" alt="client-error" src="https://github.com/user-attachments/assets/2cdc7842-1ce0-4597-8bdd-10b810eddb9c">
+
 ### Bileşen Tabanlı Mimari 
 Proje, bileşen tabanlı bir mimari ile geliştirilmiştir. Her bileşen, belirli bir işlevi yerine getirerek uygulamanın modüler ve sürdürülebilir olmasını sağlar. Bu yapı, kodun okunabilirliğini artırırken aynı zamanda bileşenlerin yeniden kullanılabilirliğini de sağlar.
 
@@ -83,6 +86,7 @@ CSS Modülleri kullanılarak her bileşen için özel stiller oluşturulmuştur.
      ```
 3. **.env.local Dosyasını Güncelleyin**
    - env.local.example dosyasının ismini env.local olarak değiştirin ve News API adresinden aldığınız API anahtarını ekleyin. API anahtarını almak için [bu linke](https://newsapi.org/) gidin.
+
      ```bash
      NEXT_PUBLIC_NEWS_API_KEY=<your-api-key>
      ```
