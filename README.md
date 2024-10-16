@@ -1,5 +1,4 @@
 
-https://github.com/user-attachments/assets/1bf1790e-4b81-424e-9112-99ecf22699f1
 # Haber Takip Uygulaması
 
 Bu proje, kullanıcıların çeşitli kaynaklardaki ve konulardaki haberleri görüntülemesini sağlayan bir Next.js 14 uygulamasıdır. Kullanıcılar, takip etmek istedikleri haber kaynaklarını seçebilir ve kişiselleştirilmiş bir haber deneyimi yaşayabilirler
