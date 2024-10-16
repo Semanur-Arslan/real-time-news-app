@@ -10,7 +10,6 @@ export default function NewsCard({ news }) {
     };
 
     return (
-
         <div className={styles.cardContainer}>
             {news.urlToImage && (
                 <div className={styles.cardImg}>
@@ -29,7 +28,7 @@ export default function NewsCard({ news }) {
             <div className={styles.cardContent}>
                 <div className={styles.cardTitleContainer}>
                     <p className={styles.publishedDate}>
-                        {format(new Date(news.publishedAt), 'dd/MM/yyyy')}
+                        {format(new Date(news.publishedAt), 'dd/MM/yyyy HH:mm')}
                     </p>
                     <a className={styles.cardUrl} href={news.url} target="_blank" rel="noopener noreferrer">
                         <h5 className={styles.cardTitle} title={news.title}>

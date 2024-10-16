@@ -1,7 +1,8 @@
 import "@/styles/globals.css";
 import Header from "@/components/header";
-import Categories from "@/components/catagories";
 import styles from '@/styles/page.module.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const metadata = {
   title: "NBC News",
@@ -15,11 +16,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <ToastContainer />
         <Header />
-        {/* <Categories /> */}
         <div className={styles.page}>
           <main className={styles.main}>
-            {children}
+              {children}
           </main>
         </div>
       </body>

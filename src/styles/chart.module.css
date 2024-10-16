@@ -5,5 +5,11 @@
 }
 
 .barContainer {
-    width:96%;
+    width:64%;
 }
+
+@media (max-width: 600px) {
+    .barContainer {
+        width:100%;
+    }
+  }

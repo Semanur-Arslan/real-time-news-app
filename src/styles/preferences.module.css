@@ -40,7 +40,6 @@
     border-color: var(--primary); 
 }
 
-
 .card.selected {
     background-color: var(--primary); 
     color: white;

@@ -24,7 +24,6 @@ export const fetchArticles = async ({ country, category, sources }) => {
     const response = await API.get('/top-headlines', { params });
     return response.data.articles;
   } catch (error) {
-    console.log(error)
     throw new Error(handleApiError(error));
   }
 };

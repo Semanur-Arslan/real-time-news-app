@@ -5,7 +5,7 @@ export const fetchCategories = async () => {
         const response = await axios.get('/data/categories.json');
         return response.data;
     } catch (error) {
-        return error
+        throw error;
     }
 };
 
@@ -14,7 +14,7 @@ export const savePreferences = async (preferences) => {
         const response = await axios.post('/api/preferences', preferences);
         return response.data;
     } catch (error) {
-        return error
+        throw error;
     }
 };
 
@@ -23,6 +23,6 @@ export const getPreferences = async () => {
         const response = await axios.get('/api/preferences');
         return response.data;
     } catch (error) {
-        return error
+        throw error;
     }
 };

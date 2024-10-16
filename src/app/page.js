@@ -8,10 +8,10 @@ import { cookies } from "next/headers";
 import style from '@/styles/homePage.module.css';
 
 export default async function Home() {
+  
   const cookieStore = cookies();
-  const userPreferences = cookieStore.get("userPreferences")?.value; // Çerezden tercihler
+  const userPreferences = cookieStore.get("userPreferences")?.value;
 
-  // Eğer userPreferences string olarak kaydedildiyse, JSON.parse ile diziye çevir
   const preferences = userPreferences ? JSON.parse(userPreferences) : { categories: [], sources: [] };
   const { sources } = preferences;
 
@@ -19,16 +19,14 @@ export default async function Home() {
   let generalArticles = [];
 
   if (sources.length > 0) {
-  
+
     await Promise.all(
       sources.map(async (source) => {
         const articles = await fetchArticles({ sources: source });
-        articlesBySource[source] = articles; 
+        articlesBySource[source] = articles;
       })
     );
-    console.log(articlesBySource)
   } else {
-
     generalArticles = await fetchArticles({ category: 'general' });
   }
 
@@ -39,18 +37,32 @@ export default async function Home() {
         {sources.length > 0 ? (
           Object.entries(articlesBySource).map(([source, articles]) => (
             <div className={style.newsContainerBySource} key={source}>
-              <Title title={`${source}`} buttonName="Show All" buttonIcon={<IoIosArrowForward />} />
-              <NewsList initialArticles={articles} category={source} />
+              <Title
+                title={`${source}`}
+                buttonName="Show All"
+                buttonIcon={<IoIosArrowForward />}
+                router={`/source/${source}`}
+              />
+              <NewsList
+                initialArticles={articles} 
+                displayCount={4} 
+                source={source}
+              />
             </div>
           ))
+
         ) : (
           <>
             <Title
               title="Breaking News"
               buttonName="Show All"
               buttonIcon={<IoIosArrowForward />}
+              router={`/source/general`}
             />
-            <NewsList initialArticles={generalArticles} category="general" />
+            <NewsList
+              initialArticles={generalArticles}
+              category="general"
+            />
           </>
         )}
         {sources.length === 0 && <PreferencesPromptModal />}
@@ -58,3 +70,5 @@ export default async function Home() {
     </>
   );
 }
+
+

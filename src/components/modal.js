@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import styles from '@/styles/modal.module.css';
 import { IoCheckmarkOutline, IoCloseOutline } from "react-icons/io5";
 
-
 export default function PreferencesPromptModal() {
     const [showModal, setShowModal] = useState(true);
     const router = useRouter();
