@@ -96,4 +96,14 @@ CSS Modülleri kullanılarak her bileşen için özel stiller oluşturulmuştur.
      ```bash
      npm run dev
      ```
+### Görseller
+<p float="left">
+  <img width="300" src="https://github.com/user-attachments/assets/1eb70f74-c68e-4236-b9ed-b9aac0cfee44" />
+  <img width="300" src="https://github.com/user-attachments/assets/ae9f1355-34c0-424a-85e9-aa26c628e946" />
+  <img width="300" src="https://github.com/user-attachments/assets/146f4123-2f67-47f5-aa78-4f61fe53c04c" />
+</p>
+
+<img width="200" alt="mobil1" src="https://github.com/user-attachments/assets/50c2628b-9b5e-441a-8fcb-ed07e92c689c">
+<img width="200" alt="mobil2" src="https://github.com/user-attachments/assets/d94d570f-0af0-47d1-8d73-6f12adbc5939">
+<img width="200" alt="mobil3" src="https://github.com/user-attachments/assets/103ad9e1-1e0d-4a6d-a33b-19e2cae4e369">
 
