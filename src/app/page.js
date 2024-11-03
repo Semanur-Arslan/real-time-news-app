@@ -11,7 +11,6 @@ export default async function Home() {
   
   const cookieStore = cookies();
   const userPreferences = cookieStore.get("userPreferences")?.value;
-
   const preferences = userPreferences ? JSON.parse(userPreferences) : { categories: [], sources: [] };
   const { sources } = preferences;
 
@@ -28,6 +27,7 @@ export default async function Home() {
     );
   } else {
     generalArticles = await fetchArticles({ category: 'general' });
+
   }
 
   return (

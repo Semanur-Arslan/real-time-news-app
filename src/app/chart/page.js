@@ -17,7 +17,6 @@ export default function ChartPage() {
         const preferences = await getPreferences();
         const hourlyDataArray = [];
 
-
         await Promise.all(
           preferences.sources.map(async (source) => {
             const articles = await fetchArticles({ sources: source });
