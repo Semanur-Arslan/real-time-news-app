@@ -96,6 +96,25 @@ CSS Modülleri kullanılarak her bileşen için özel stiller oluşturulmuştur.
      ```bash
      npm run dev
      ```
+
+## Mobil Cihazda (Android Emülatör) başlatmak için adımlar 
+- Bu proje, Android emülatöründe çalıştırılabilmektedir. Android emülatöründe yerel sunucuya erişmek için yukarıda belirtilen ilk 3 adımdan sonra aşağıdaki adımları izleyin.
+
+1. **Projeyi Başlatın**
+   - Uygulamayı başlatmak için aşağıdaki komutu çalıştırın:
+     ```bash
+     npm run dev
+     ```
+2. **Android Projesini Başlatın**
+   - Farklı bir terminalde aşağıdaki komutu çalıştırarak Android projesini başlatın:
+     ```bash
+     npx cap open android
+     ```
+
+
+https://github.com/user-attachments/assets/0b0b0bda-32c1-4e97-8714-8fb53ead5fcf
+
+
 ### Görseller
 <p float="left">
   <img width="300" src="https://github.com/user-attachments/assets/1eb70f74-c68e-4236-b9ed-b9aac0cfee44" />
