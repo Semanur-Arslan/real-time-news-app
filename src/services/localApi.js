@@ -1,13 +1,12 @@
 import axios from 'axios';
+import categories from '../../public/data/categories.js';
 
-export const fetchCategories = async () => {
-    try {
-        const response = await axios.get('/data/categories.json');
-        return response.data;
-    } catch (error) {
-        throw error;
-    }
-};
+const apiURL = process.env.NEXT_PUBLIC_API_URL;
+
+export function fetchCategories() {
+    return categories; 
+}
+  
 
 export const savePreferences = async (preferences) => {
     try {

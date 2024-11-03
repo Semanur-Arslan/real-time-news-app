@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "701820415321",
+    "project_id": "nbc-news-98c04",
+    "storage_bucket": "nbc-news-98c04.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701820415321:android:b87ad0b5ce6b2fcba1b048",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHKPImbCqRIZX6Ev6-MpRzC9d2n6EKS5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
